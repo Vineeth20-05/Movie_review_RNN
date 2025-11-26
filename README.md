@@ -1,6 +1,6 @@
 🎬 IMDB Movie Review Sentiment Analysis (RNN + Streamlit)
 
-This project is a Sentiment Classification Web App built using a Recurrent Neural Network (RNN) trained on the IMDB Movie Review Dataset.
+This project is a Sentiment Classification Web Application built using a Recurrent Neural Network (RNN) trained on the IMDB Movie Review Dataset.
 The app allows users to enter a movie review and predicts whether it is Positive or Negative using a deployed TensorFlow model.
 
 🚀 Live Demo
@@ -8,16 +8,25 @@ The app allows users to enter a movie review and predicts whether it is Positive
 👉 Add your Streamlit deployment link here
 
 📌 Features
+🔥 Real-time Sentiment Prediction
 
-🔥 Real-time sentiment prediction using a trained SimpleRNN model
+Uses a trained SimpleRNN model to classify reviews instantly.
 
-🧠 Uses the official IMDB word index for preprocessing
+🧠 Official IMDB Word Index
 
-🎨 Clean and interactive Streamlit interface
+Preprocessing uses the official IMDB vocabulary for accurate tokenization.
 
-📈 Displays both Sentiment and Prediction Score
+🎨 Interactive Streamlit Interface
 
-🛠 Fully reproducible pipeline
+A clean and user-friendly UI for entering movie reviews.
+
+📈 Sentiment + Prediction Score
+
+Displays both binary sentiment and confidence score.
+
+🛠 Fully Reproducible Pipeline
+
+Complete preprocessing → encoding → padding → prediction pipeline.
 
 📂 Project Structure
 📦 imdb-rnn-sentiment-app
@@ -28,39 +37,64 @@ The app allows users to enter a movie review and predicts whether it is Positive
 └── README.md                    # Project documentation
 
 🧠 About the Model
+Neural Network Architecture
 
-The model consists of:
-
-Embedding layer with vocab_size=10,000
+Embedding layer (vocab_size = 10,000)
 
 SimpleRNN layer
 
 Dense output layer (Sigmoid)
 
-It was trained on the IMDB movie review dataset where:
+Dataset Details
+
+Trained on the IMDB Movie Review Dataset, where:
 
 Reviews are integer-encoded
 
 Maximum sequence length = 500
 
-Binary classification: Positive (1) / Negative (0)
+Task: Binary sentiment classification
+
+1 → Positive
+
+0 → Negative
 
 🔍 Text Preprocessing Steps
 
-Before predicting sentiment, the input review is processed as follows:
+Before predicting sentiment, the user’s input is preprocessed as follows:
 
-Convert to lowercase
+1️⃣ Convert Text to Lowercase
 
-Remove punctuation and special characters
+Ensures uniformity.
 
-Split into words
+2️⃣ Remove Punctuation & Special Characters
 
-Replace each word with its integer index using IMDB's official vocabulary
+Keeps only alphanumeric characters and spaces.
 
-Replace unknown words with OOV token = 2
+3️⃣ Split Text into Words
 
-Add index shift (+3) as required by the IMDB dataset
+Tokenizes the input sentence.
 
-Pad the review to a fixed length (500)
+4️⃣ Convert Words to Integer Indices
 
-This ensures consistency between training and real-time inference.
+Maps each word using IMDB’s official word_index.
+
+5️⃣ Replace Unknown Words
+
+Words not present in the IMDB vocabulary are replaced by the OOV token (2).
+
+6️⃣ Add Index Shift (+3)
+
+IMDB reserves:
+
+0 → padding
+
+1 → start token
+
+2 → OOV token
+
+So actual words start from index 3.
+
+7️⃣ Pad Sequence to Length = 500
+
+Ensures consistent input dimension for the RNN model.
