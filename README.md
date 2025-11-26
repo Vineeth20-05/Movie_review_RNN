@@ -1,4 +1,4 @@
-🎬 IMDB Movie Review Sentiment Analysis (RNN + Streamlit)
+#🎬 IMDB Movie Review Sentiment Analysis (RNN + Streamlit)
 
 This project is a Sentiment Classification Web App built using a Recurrent Neural Network (RNN) trained on the IMDB Movie Review Dataset.
 The app allows users to enter a movie review and predicts whether it is Positive or Negative using a deployed TensorFlow model.
@@ -7,7 +7,7 @@ The app allows users to enter a movie review and predicts whether it is Positive
 
 👉 Add your Streamlit deployment link here
 
-📌 Features
+#📌 Features
 
 🔥 Real-time sentiment prediction using a trained SimpleRNN model
 
@@ -19,7 +19,7 @@ The app allows users to enter a movie review and predicts whether it is Positive
 
 🛠 Fully reproducible pipeline
 
-📂 Project Structure
+#📂 Project Structure
 📦 imdb-rnn-sentiment-app
 │
 ├── model_rnn.h5                 # Trained RNN model
@@ -27,7 +27,7 @@ The app allows users to enter a movie review and predicts whether it is Positive
 ├── requirements.txt             # Dependencies
 └── README.md                    # Project documentation
 
-🧠 About the Model
+#🧠 About the Model
 
 The model consists of:
 
@@ -45,7 +45,7 @@ Maximum sequence length = 500
 
 Binary classification: Positive (1) / Negative (0)
 
-🔍 Text Preprocessing Steps
+#🔍 Text Preprocessing Steps
 
 Before predicting sentiment, the input review is processed as follows:
 
