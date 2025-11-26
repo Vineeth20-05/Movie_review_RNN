@@ -5,7 +5,7 @@ The app allows users to enter a movie review and predicts whether it is Positive
 
 🚀 Live Demo 
 
-👉
+👉 https://moviereviewrnn-kacqwjqyu2uvsqhzhely6x.streamlit.app/
 
 📌 Features
 🔥 Real-time Sentiment Prediction
