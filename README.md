@@ -4,7 +4,7 @@ This project is a Sentiment Classification Web Application built using a Recurre
 The app allows users to enter a movie review and predicts whether it is Positive or Negative using a deployed TensorFlow model.
 
 🚀 Live Demo 
-Click here : https://moviereviewrnn-a3kfybsfyupdx3aowunyfs.streamlit.app/
+Click here : https://h5fpyxline104inh5pyh5fopen-ijstfpnvpwtpebw5bqwa3p.streamlit.app/
 
 👉 Add your Streamlit deployment link here
 
