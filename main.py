@@ -10,8 +10,7 @@ import re
 model=load_model('model_rnn.h5')
 
 word_index = imdb.get_word_index()
-reversed_word_index = {value:key for key,value in word_index.items()}
-reversed_word_index
+
 
 
 def clean_text(text):
@@ -52,4 +51,5 @@ if st.button('Classify'):
     st.write(f'Prediction Score: {prediction[0][0]}')
 else:
     st.write('Please enter a movie review.')
+
 
