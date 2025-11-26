@@ -3,7 +3,8 @@
 This project is a Sentiment Classification Web Application built using a Recurrent Neural Network (RNN) trained on the IMDB Movie Review Dataset.
 The app allows users to enter a movie review and predicts whether it is Positive or Negative using a deployed TensorFlow model.
 
-🚀 Live Demo
+🚀 Live Demo 
+Click here : https://moviereviewrnn-a3kfybsfyupdx3aowunyfs.streamlit.app/
 
 👉 Add your Streamlit deployment link here
 
