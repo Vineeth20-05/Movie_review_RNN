@@ -1,100 +1,94 @@
-🎬 IMDB Movie Review Sentiment Analysis (RNN + Streamlit)
+# 🎬 IMDB Movie Review Sentiment Analysis (RNN + Streamlit)
 
-This project is a Sentiment Classification Web Application built using a Recurrent Neural Network (RNN) trained on the IMDB Movie Review Dataset.
-The app allows users to enter a movie review and predicts whether it is Positive or Negative using a deployed TensorFlow model.
+This project is a **Sentiment Classification Web Application** built using a **Recurrent Neural Network (RNN)** trained on the **IMDB Movie Review Dataset**.  
+The app allows users to enter a movie review and instantly predicts whether the sentiment is **Positive** or **Negative** using a deployed TensorFlow model.
 
-🚀 Live Demo 
+---
 
+## 🚀 Live Streamlit App  
+🔗 **Deployed Web App:**  
 👉 https://moviereviewrnn-kacqwjqyu2uvsqhzhely6x.streamlit.app/
 
-📌 Features
-🔥 Real-time Sentiment Prediction
+---
 
-Uses a trained SimpleRNN model to classify reviews instantly.
+## 📌 Features
 
-🧠 Official IMDB Word Index
+### 🔥 Real-time Sentiment Prediction  
+Instant classification using a trained **SimpleRNN** model.
 
-Preprocessing uses the official IMDB vocabulary for accurate tokenization.
+### 🧠 Official IMDB Word Index  
+Uses Keras’ built-in `imdb.get_word_index()` for accurate tokenization.
 
-🎨 Interactive Streamlit Interface
+### 🎨 Interactive Streamlit UI  
+Simple, clean, and responsive interface for entering movie reviews.
 
-A clean and user-friendly UI for entering movie reviews.
+### 📈 Sentiment + Confidence Score  
+Displays both the predicted class and model probability.
 
-📈 Sentiment + Prediction Score
+### 🛠 Fully Reproducible Pipeline  
+Complete flow:  
+**Preprocessing → Integer Encoding → Padding → Prediction**
 
-Displays both binary sentiment and confidence score.
+---
+## 🧠 About the Model
 
-🛠 Fully Reproducible Pipeline
+### 📐 Neural Network Architecture
 
-Complete preprocessing → encoding → padding → prediction pipeline.
+- **Embedding Layer** (vocab size = 10,000)  
+- **SimpleRNN Layer**  
+- **Dense Output Layer** with **Sigmoid activation**
 
-📂 Project Structure
-📦 imdb-rnn-sentiment-app
-│
-├── model_rnn.h5                 # Trained RNN model
-├── app.py                       # Streamlit application
-├── requirements.txt             # Dependencies
-└── README.md                    # Project documentation
+### 📊 Dataset: IMDB Movie Reviews  
+Trained on the official IMDB dataset:
 
-🧠 About the Model
-Neural Network Architecture
+- Reviews are **integer-encoded**
+- Maximum sequence length = **500**
+- **Binary sentiment classification**
+  - `1` → Positive  
+  - `0` → Negative  
 
-Embedding layer (vocab_size = 10,000)
+---
 
-SimpleRNN layer
+## 🔍 Text Preprocessing Steps
 
-Dense output layer (Sigmoid)
+Before predicting the sentiment, the review goes through these steps:
 
-Dataset Details
+### 1️⃣ Convert text to lowercase  
+Ensures consistency.
 
-Trained on the IMDB Movie Review Dataset, where:
+### 2️⃣ Remove punctuation and special symbols  
+Keeps only alphanumeric characters + spaces.
 
-Reviews are integer-encoded
+### 3️⃣ Split text into words  
+Basic tokenization.
 
-Maximum sequence length = 500
+### 4️⃣ Convert words → integer indices  
+Using IMDB’s official `word_index`.
 
-Task: Binary sentiment classification
+### 5️⃣ Replace unknown words  
+Words not in vocabulary become **OOV token = 2**.
 
-1 → Positive
+### 6️⃣ Apply index shift (+3)  
+IMDB identifies:
 
-0 → Negative
+| Token | Meaning |
+|-------|---------|
+| 0 | Padding |
+| 1 | Start token |
+| 2 | OOV token |
+| 3+ | Actual words |
 
-🔍 Text Preprocessing Steps
+### 7️⃣ Pad to length = **500**  
+Ensures that the RNN receives a fixed input size.
 
-Before predicting sentiment, the user’s input is preprocessed as follows:
+---
 
-1️⃣ Convert Text to Lowercase
+## ▶️ Running the Project Locally
 
-Ensures uniformity.
+```bash
+git clone https://github.com/yourusername/imdb-rnn-sentiment-app.git
+cd imdb-rnn-sentiment-app
+pip install -r requirements.txt
+streamlit run app.py
 
-2️⃣ Remove Punctuation & Special Characters
 
-Keeps only alphanumeric characters and spaces.
-
-3️⃣ Split Text into Words
-
-Tokenizes the input sentence.
-
-4️⃣ Convert Words to Integer Indices
-
-Maps each word using IMDB’s official word_index.
-
-5️⃣ Replace Unknown Words
-
-Words not present in the IMDB vocabulary are replaced by the OOV token (2).
-
-6️⃣ Add Index Shift (+3)
-
-IMDB reserves:
-
-0 → padding
-
-1 → start token
-
-2 → OOV token
-
-So actual words start from index 3.
-
-7️⃣ Pad Sequence to Length = 500
-
-Ensures consistent input dimension for the RNN model.
